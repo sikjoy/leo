@@ -1,0 +1,10 @@
+[Unit]
+Description=Francis Farms Leo Application
+
+[Timer]
+# Run the task once per minute
+OnCalendar=*-*-* *:*:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

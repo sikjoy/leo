@@ -1,0 +1,12 @@
+[Unit]
+Description=Francis Farms Leo Application
+After=network.target
+
+[Service]
+WorkingDirectory=/home/kfmathis/src/leo
+ExecStart=bash -c "source venv/bin/activate && python app.py"
+
+[Install]
+# None specified.
+# We will statically link this file to /etc/systemd/system so that the service
+# is not launched on boot up. We only want the service to start via the timer.
