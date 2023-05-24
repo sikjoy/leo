@@ -1,3 +1,8 @@
+'''Model LD3007MS DC 5V Fan
+
+Rated for 5 m^3/h at 5V
+'''
+
 from dotenv import dotenv_values
 from periphery import PWM
 import sys

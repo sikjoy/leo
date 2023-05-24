@@ -26,7 +26,14 @@ class PIDController:
         self.last_error = self.error
         self.last_time = self.time
         self._dump()
+        self.debug(self.error, self.integral, derivative, output)
         return output
+
+    def debug(self, error, integral, derivative, output):
+        fp = open('debug.json', 'w')
+        data = {'error': error, 'integral': integral, 'derivative': derivative, 'output': output}
+        json.dump(data, fp)
+        fp.close()
 
     def _dump(self):
         fp = open('pid.json', 'w')

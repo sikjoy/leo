@@ -1,9 +1,8 @@
-"""Francis Farms Leo App
+'''Leo App by Francis Farms
 
 This application maintains fruiting conditions for mushrooms
 in the Leo Fruiting Chamber by Francis Farms.
-
-"""
+'''
 
 import fan
 import mist
@@ -30,6 +29,11 @@ elif control_value < 0.25:
 
 if control_value > 0.1:
     mist.pulse(control_value)
+
+# check for run-away condition
+if (data.humidity / float(config['HUMIDITY_SETPOINT'])) > 1.1:
+    # mist is probably stuck on, toggle to resolve
+    mist.toggle()
 
 result = {
     'temp': data.temperature,
